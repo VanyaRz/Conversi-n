@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversión de Temperaturas</title>
+</head>
+<body>
+    <h1 style="font-family: Arial, sans-serif;">Conversión de Temperaturas</h1>
+    <div id="resultado"></div>
+
+    <script>
+        let continuar = 1; // 1 seguir, 0 terminar
+
+        while (continuar === 1) {
+            const numero = parseFloat(prompt("Ingrese un número en °C para convertir:"));
+
+            if (isNaN(numero)) {
+                document.getElementById("resultado").innerHTML += "<p>Error: ingrese un número válido.</p>";
+            } else {
+                const fahrenheit = (numero * 9/5) + 32;
+                const kelvin = numero + 273.15;
+
+                document.getElementById("resultado").innerHTML +=
+                    "<p>" + numero + "°C equivalen a " +
+                    fahrenheit.toFixed(2) + "°F y " +
+                    kelvin.toFixed(2) + "K</p>";
+            }
+
+            const respuesta = prompt("¿Desea hacer otra conversión? (1 = sí, 0 = no): ");
+            continuar = parseInt(respuesta);
+        }
+
+        document.getElementById("resultado").innerHTML += "<p>¡Gracias por usar el convertidor de grados Celsius a Fahrenheit y Kelvin. ¡Hasta luego!</p>";
+    </script>
+</body>
+</html>
